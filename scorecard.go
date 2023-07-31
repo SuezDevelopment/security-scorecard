@@ -41,13 +41,3 @@ type SecurityScorecard  struct {
 
 }
 
-
-func main(){
-	scorecard := SecurityScorecard{}
-
-	assessSSLConfiguration(&scorecard)
-    assessAuthentication(&scorecard)
-    assessDatabaseEncryption(&scorecard)
-
-    calculateOverallScore(&scorecard)
-}

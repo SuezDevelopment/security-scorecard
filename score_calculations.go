@@ -1,19 +1,28 @@
 package gosecurityscorecard
 
-func calculateSSLConfigurationScore() int {
-	return 0
+type ScoreCalculator struct {
+  scorecard *SecurityScorecard
 }
 
-func calculateAuthenticationScore() int {
-	return 0
+func NewScoreCalculator(scorecard *SecurityScorecard) *ScoreCalculator {
+  return &ScoreCalculator{
+    scorecard: scorecard,
+  }
 }
 
-func calculateDatabaseEncryptionScore() int {
-	return 0
+func (c *ScoreCalculator) CalculateSSLScore() {
+  c.scorecard.SSLConfiguration = 0 // calculate score
 }
 
+func (c *ScoreCalculator) CalculateAuthScore() {
+  c.scorecard.Authentication = 0 // calculate score 
+}
 
-func calculateOverallScore(scorecard *SecurityScorecard) int{
-    // Calculate overall score based on individual criterion scores
-	return 0
+func (c *ScoreCalculator) CalculateDBEncryptionScore() {
+  c.scorecard.DatabaseEncryption = 0 // calculate score
+}
+
+func (c *ScoreCalculator) CalculateOverallScore() {
+  // calculate overall score
+  c.scorecard.OverallScore = 0 
 }

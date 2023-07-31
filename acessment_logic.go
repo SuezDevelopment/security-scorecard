@@ -1,25 +1,12 @@
 package gosecurityscorecard
 
-
-type SecurityAssessmentLogic interface {
-	assessSSLConfiguration(*SecurityScorecard) int
-	assessAuthentication(*SecurityScorecard) int
-	assessDatabaseEncryption(*SecurityScorecard) int
-
-	// Implement other assessment logics here
+type SecurityAssessmentLogic struct {
+  scorecard *SecurityScorecard
 }
 
-
-
- 
-func assessSSLConfiguration(scorecard *SecurityScorecard) {
-    scorecard.SSLConfiguration = calculateSSLConfigurationScore()
+func NewSecurityAssessmentLogic(scorecard *SecurityScorecard) *SecurityAssessmentLogic {
+  return &SecurityAssessmentLogic{
+    scorecard: scorecard,
+  }
 }
 
-func assessAuthentication(scorecard *SecurityScorecard){
-    scorecard.Authentication = calculateAuthenticationScore()
-}
-
-func assessDatabaseEncryption(scorecard *SecurityScorecard){
-    scorecard.DatabaseEncryption = calculateDatabaseEncryptionScore()
-}
